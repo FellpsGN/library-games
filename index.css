@@ -17,18 +17,35 @@ body * {
     line-height: 160%;
 }
 
-section ul {
-    list-style: none;
+header {
+    margin-top: 32px;
+    /* height: calc(120px + 32px); */
+    /* text-align: center; */ /*essa propriedade não funciona mais, pelo fato das divs não terem propriedade de texto*/
+}
+
+header div { 
+    width: 120px;
+    margin: auto; /*Para alinhar a div ao meio*/
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
     display: flex;
-    gap: 16px; /*gap só funciona com o display: flex; e display: grid;*/
-    margin-top: 24px;
-    flex-wrap: wrap; /*Essa funcionalidade fará com que, caso tenha mais jogos a serem implementados, ele serão jogado para baixo quando chega no limite da section e não ficarão na mesma linha*/
+    padding: 4px;
+    transition: transform .5s; /*se o transition receber o efeito transform que seria descansar o mouse em cima*/
+}
+
+header div:hover { /*:hover significa descanso do mouse em cima do elemento*/
+    transform: scale(1.2);
+}
+
+header div img {
+    width: 100%; /*Valor de 100% se referênciando ao tamanho da div então 100% = 120px*/
+    border-radius: 50%;
 }
 
 main {
     max-width: 580px;
     width: 90%;
-    margin: auto;
+    margin: 32px auto; /*primeiro valor: top e bottom; segundo valor: laterais*/
 
     /* display: flex;
     flex-direction: column;
@@ -54,6 +71,7 @@ section div {
     padding-top: 24px;
 }
 
+
 section h2 {
     letter-spacing: -0.47px;
 }
@@ -63,6 +81,22 @@ section p {
     color: #A1A1AA;
 }
 
+section ul {
+    list-style: none;
+    display: flex;
+    gap: 16px; /*gap só funciona com o display: flex; e display: grid;*/
+    margin-top: 24px;
+    flex-wrap: wrap; /*Essa funcionalidade fará com que, caso tenha mais jogos a serem implementados, ele serão jogado para baixo quando chega no limite da section e não ficarão na mesma linha*/
+}
+
+section ul li {
+    transition: transform .3s;
+}
+
+section ul li:hover {
+    transform: scale(1.2);
+}
+
 .games-list img {
     width: 90px;
     border-radius: 8px;
@@ -70,4 +104,53 @@ section p {
 
 .streamers-list img {
     border-radius: 50%;
+    border-radius: 1px solid #443E54;
+}
+
+/* animation */
+
+header div {
+    animation: fromTop 1.2s backwards; /*backwards vai pegar as caracteristicas do from e por padrão*/
+    animation-delay: .2s; /*quando se tem um delay é legal ter a propriedade backwards*/
+}
+
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-120px);
+
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+main section {
+    animation: fromBottom 1.2s backwards;
+}
+
+main section:nth-child(1) { /*nth-child significa que ele vai pegar o primeiro "filho" ou elemento da main que é da tag section*/
+    animation-delay: 0;
+}
+
+main section:nth-child(2) { /*nth-child significa que ele vai pegar o primeiro "filho" ou elemento da main que é da tag section*/
+    animation-delay: .4s;
+}
+
+main section:nth-child(3) { /*nth-child significa que ele vai pegar o primeiro "filho" ou elemento da main que é da tag section*/
+    animation-delay: .8s;
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateX(-120px);
+    }
+
+    To {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

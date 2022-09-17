@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Propriedade usada para manter o limite maximo de tamanho dos elementos, exemplo: main contem 580px (tamanho maximo) se eu implementar um padding de 50 sem border-box iria fazer 580 + 50 com o border box iria manter os 580 */
+}
+
+body {
+    background-image: url(./assets/background.jpg);
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+
+section ul {
+    list-style: none;
+    display: flex;
+    gap: 16px; /*gap só funciona com o display: flex; e display: grid;*/
+    margin-top: 24px;
+    flex-wrap: wrap; /*Essa funcionalidade fará com que, caso tenha mais jogos a serem implementados, ele serão jogado para baixo quando chega no limite da section e não ficarão na mesma linha*/
+}
+
+main {
+    max-width: 580px;
+    width: 90%;
+    margin: auto;
+
+    /* display: flex;
+    flex-direction: column;
+    gap: 24px; */ /*Posso fazer dessa forma com display flex ou display grid (gap funciona para os dois)*/
+
+    display: grid;
+    gap: 24px; /*GAP seria o espaçamento entre cada elemento ul dentro da main */
+
+    margin-top: 32px;
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div {
+    background-color: #2A2634;
+    border-radius: 8px;
+    padding: 32px;
+    padding-top: 24px;
+}
+
+section h2 {
+    letter-spacing: -0.47px;
+}
+
+section p {
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+.games-list img {
+    width: 90px;
+    border-radius: 8px;
+}
+
+.streamers-list img {
+    border-radius: 50%;
+}
